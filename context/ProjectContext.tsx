@@ -2,6 +2,7 @@ import React, { createContext, useContext, useReducer, ReactNode } from 'react';
 import { Project, ResearchData, GenSettings, Branch, Book } from '../types';
 import { AgentState, ResearchCoordinator } from '../services/orchestrator';
 import { AuthorAgent } from '../services/agents/AuthorAgent';
+import { DEMO_RESEARCH, DEMO_BOOK } from '../data/demoData';
 
 interface State {
   status: 'INPUT' | 'RESEARCHING' | 'DRAFTING' | 'RESULT' | 'ERROR';
@@ -36,12 +37,12 @@ const reducer = (state: State, action: Action): State => {
     case 'UPDATE_AGENTS':
       return { ...state, agentStates: action.payload };
     case 'RESEARCH_SUCCESS':
-       const firstBranch: Branch = {
-          id: Date.now().toString(),
-          name: "Original Draft",
-          timestamp: Date.now(),
-          settings: action.payload.settings,
-          book: action.payload.draft
+      const firstBranch: Branch = {
+        id: Date.now().toString(),
+        name: "Original Draft",
+        timestamp: Date.now(),
+        settings: action.payload.settings,
+        book: action.payload.draft
       };
       return {
         ...state,
@@ -70,7 +71,7 @@ const reducer = (state: State, action: Action): State => {
       return { ...state, activeBranchId: action.payload };
     case 'UPDATE_BOOK':
       if (!state.project || !state.activeBranchId) return state;
-      const updatedBranches = state.project.branches.map(b => 
+      const updatedBranches = state.project.branches.map(b =>
         b.id === state.activeBranchId ? { ...b, book: action.payload } : b
       );
       return {
@@ -89,6 +90,7 @@ const ProjectContext = createContext<{
   resetProject: () => void;
   setActiveBranch: (id: string) => void;
   updateActiveBook: (book: Book) => void;
+  loadDemoData: () => void;
 } | undefined>(undefined);
 
 export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -118,15 +120,15 @@ export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children })
     try {
       const draft = await author.generateDraft(state.project.topic, state.project.research, settings);
       const newBranch: Branch = {
-          id: Date.now().toString(),
-          name: `Draft ${state.project.branches.length + 1}`,
-          timestamp: Date.now(),
-          settings: settings,
-          book: draft
+        id: Date.now().toString(),
+        name: `Draft ${state.project.branches.length + 1}`,
+        timestamp: Date.now(),
+        settings: settings,
+        book: draft
       };
       dispatch({ type: 'ADD_BRANCH', payload: newBranch });
     } catch (e: any) {
-       console.error("Branch generation failed", e);
+      console.error("Branch generation failed", e);
     }
   };
 
@@ -134,8 +136,29 @@ export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children })
   const setActiveBranch = (id: string) => dispatch({ type: 'SET_ACTIVE_BRANCH', payload: id });
   const updateActiveBook = (book: Book) => dispatch({ type: 'UPDATE_BOOK', payload: book });
 
+  const loadDemoData = () => {
+    const demoSettings: GenSettings = {
+      tone: 'satirical',
+      visualStyle: 'forensic',
+      lengthLevel: 2,
+      imageDensity: 2,
+      techLevel: 2,
+      targetWordCount: 5000,
+      caseStudyCount: 3,
+    };
+    dispatch({
+      type: 'RESEARCH_SUCCESS',
+      payload: {
+        topic: 'Dropshipping',
+        data: DEMO_RESEARCH as ResearchData,
+        settings: demoSettings,
+        draft: DEMO_BOOK as Book
+      }
+    });
+  };
+
   return (
-    <ProjectContext.Provider value={{ state, startInvestigation, createBranch, resetProject, setActiveBranch, updateActiveBook }}>
+    <ProjectContext.Provider value={{ state, startInvestigation, createBranch, resetProject, setActiveBranch, updateActiveBook, loadDemoData }}>
       {children}
     </ProjectContext.Provider>
   );
