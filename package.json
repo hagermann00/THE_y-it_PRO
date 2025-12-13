@@ -40,5 +40,15 @@
     "vitest": "^1.2.0",
     "@vitest/ui": "^1.2.0",
     "happy-dom": "^13.3.8"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie 11",
+    "not op_mini all",
+    "Chrome >= 90",
+    "Firefox >= 88",
+    "Safari >= 15",
+    "Edge >= 90"
+  ]
 }
