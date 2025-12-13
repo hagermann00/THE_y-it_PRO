@@ -12,10 +12,40 @@ export interface AgentState {
   message?: string;
 }
 
+/**
+ * Orchestrates parallel execution of specialized research agents to gather and synthesize
+ * comprehensive intelligence on a given topic. Coordinates four specialized agents
+ * (Detective, Auditor, Insider, Statistician) to provide multi-perspective analysis.
+ *
+ * The coordinator collects reports from all agents, synthesizes conflicting data,
+ * and produces a validated, structured ResearchData object using the Gemini API
+ * for intelligent synthesis and the Zod schema for validation.
+ *
+ * @example
+ * ```typescript
+ * const coordinator = new ResearchCoordinator();
+ * const research = await coordinator.execute('cryptocurrency', (states) => {
+ *   console.log('Agent progress:', states);
+ *   // Update UI with current agent statuses
+ * });
+ * console.log('Summary:', research.summary);
+ * console.log('Market stats:', research.marketStats);
+ * ```
+ */
 export class ResearchCoordinator {
   private llm: LLMClient;
   private agents: any[];
 
+  /**
+   * Creates a new ResearchCoordinator instance.
+   * Initializes the LLM client singleton and instantiates the four specialized agents
+   * (Detective, Auditor, Insider, Statistician) that will be used for research gathering.
+   *
+   * @example
+   * ```typescript
+   * const coordinator = new ResearchCoordinator();
+   * ```
+   */
   constructor() {
     this.llm = LLMClient.getInstance();
     this.agents = [
@@ -26,6 +56,48 @@ export class ResearchCoordinator {
     ];
   }
 
+  /**
+   * Executes parallel research gathering from specialized agents and synthesizes results.
+   *
+   * Flow:
+   * 1. Initializes all agents with PENDING status
+   * 2. Executes agents in parallel with Promise.allSettled for robustness
+   * 3. Reports progress via onProgress callback as agents change status
+   * 4. Collects all agent reports (handles failures gracefully)
+   * 5. Synthesizes conflicting reports using Gemini API with structured output
+   * 6. Validates final result against ResearchData schema
+   *
+   * @param {string} topic - The research topic to investigate (e.g., "cryptocurrency", "AI safety")
+   * @param {Function} onProgress - Callback function invoked with updated agent states during execution.
+   *   Receives array of AgentState objects with current status of each agent.
+   *   Called when: agents start, agents complete, agents fail, or synthesis completes.
+   *
+   * @returns {Promise<ValidatedResearchData>} Synthesized research data object containing:
+   *   - summary: Overall summary of the topic
+   *   - ethicalRating: Ethical assessment (0-10 scale)
+   *   - profitPotential: Market opportunity assessment
+   *   - marketStats: Array of key market statistics with context
+   *   - hiddenCosts: Array of hidden or indirect costs
+   *   - caseStudies: Detailed case studies of successes and failures
+   *   - affiliates: Affiliate program opportunities with commission info
+   *
+   * @throws {Error} Throws if final validation fails or Gemini API returns invalid data
+   *
+   * @example
+   * ```typescript
+   * const coordinator = new ResearchCoordinator();
+   * try {
+   *   const research = await coordinator.execute('nft-gaming', (states) => {
+   *     states.forEach(state => {
+   *       console.log(`${state.name}: ${state.status}`);
+   *     });
+   *   });
+   *   console.log('Research complete:', research.summary);
+   * } catch (error) {
+   *   console.error('Research failed:', error.message);
+   * }
+   * ```
+   */
   async execute(topic: string, onProgress: (state: AgentState[]) => void): Promise<ValidatedResearchData> {
     const agentStates: AgentState[] = this.agents.map(a => ({ name: a.name, status: 'PENDING' }));
     onProgress([...agentStates]);

@@ -18,6 +18,33 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build: {
+        target: 'es2022',
+        minify: 'terser',
+        sourcemap: false,
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              'react-vendor': ['react', 'react-dom'],
+              'charts': ['recharts'],
+              'pdf': ['jspdf'],
+              'ai': ['@google/genai'],
+              'markdown': ['react-markdown'],
+              'icons': ['lucide-react']
+            }
+          }
+        },
+        terserOptions: {
+          compress: {
+            drop_console: true,
+            drop_debugger: true
+          }
+        },
+        chunkSizeWarningLimit: 1000
+      },
+      optimizeDeps: {
+        include: ['react', 'react-dom', '@google/genai']
       }
     };
 });
