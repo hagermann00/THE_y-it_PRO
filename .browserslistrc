@@ -1,0 +1,17 @@
+# Browsers that we support
+
+# Global coverage
+>0.2%
+not dead
+not ie 11
+not op_mini all
+
+# Modern browsers
+Chrome >= 90
+Firefox >= 88
+Safari >= 15
+Edge >= 90
+
+# Mobile
+iOS >= 15
+Android >= 90
