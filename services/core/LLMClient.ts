@@ -5,12 +5,13 @@ export class LLMClient {
   private client: GoogleGenAI;
 
   private constructor() {
-    // Strictly use process.env.API_KEY as per guidelines. 
-    // In Vite/Web environments, ensure your bundler (like Vite via define) or environment injects this.
-    const apiKey = process.env.API_KEY;
+    // Support both Vite (import.meta.env) and Node (process.env) environments
+    const apiKey = (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_GEMINI_API_KEY)
+      ? (import.meta as any).env.VITE_GEMINI_API_KEY
+      : (process.env.GEMINI_API_KEY || process.env.API_KEY);
 
     if (!apiKey) {
-      console.warn("API Key not found in process.env.API_KEY. Ensure it is set in your environment.");
+      console.warn("API Key not found. Set VITE_GEMINI_API_KEY, GEMINI_API_KEY, or API_KEY in your environment.");
     }
 
     this.client = new GoogleGenAI({ apiKey: apiKey || "" });
