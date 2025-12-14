@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y-IT: Chapter 2 - The $997 Secret (For Free)</title>
+    <style>
+        /* ============================================
+           Y-IT KDP MASTER TEMPLATE - CHAPTER 2
+           Format: 6" × 9" (KDP Standard)
+           ============================================ */
+        
+        @page {
+            size: 6in 9in;
+            margin: 0.75in 0.5in 0.75in 0.625in;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --background-cream: #F5F2EC;
+            --charcoal-text: #3A3A3A;
+            --rust-accent: #B3502B;
+            --navy-primary: #1E2B38;
+            --gray-blue: #7A8390;
+            --warning-red: #E35050;
+            --success-green: #6EC972;
+            --highlight-yellow: #F8C952;
+            --light-yellow: #FEF9E7;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: var(--charcoal-text);
+            background-color: var(--background-cream);
+            max-width: 5.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+            text-align: justify;
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--navy-primary);
+            text-align: left;
+        }
+        
+        h1 {
+            font-size: 24pt;
+            border-bottom: 3px solid var(--rust-accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: 18pt;
+            color: var(--rust-accent);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        h3 {
+            font-size: 14pt;
+            color: var(--navy-primary);
+            margin-top: 20px;
+        }
+        
+        h4 {
+            font-size: 12pt;
+            color: var(--gray-blue);
+        }
+        
+        p {
+            margin-bottom: 12px;
+            text-indent: 0;
+        }
+        
+        /* Chapter Title Page */
+        .chapter-opener {
+            page-break-before: always;
+            page-break-after: always;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .chapter-opener img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .chapter-title {
+            page-break-before: always;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 20pt;
+            color: var(--charcoal-text);
+        }
+        
+        /* Full-width images */
+        .full-width-image {
+            width: 100%;
+            margin: 20px 0;
+            display: block;
+        }
+        
+        .full-width-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        /* Sidebar - Right floating */
+        .sidebar {
+            background: var(--background-cream);
+            border: 3px solid var(--warning-red);
+            border-left: 8px solid var(--navy-primary);
+            padding: 15px;
+            margin: 20px 0 20px 20px;
+            width: 45%;
+            float: right;
+            clear: right;
+            font-size: 10pt;
+            box-shadow: -3px 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar-yellow {
+            background: var(--light-yellow);
+            border: 3px solid var(--highlight-yellow);
+            border-left: 8px solid var(--highlight-yellow);
+            padding: 15px;
+            margin: 20px 0 20px 20px;
+            width: 45%;
+            float: right;
+            clear: right;
+            font-size: 10pt;
+            box-shadow: -3px 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar-dark {
+            background: var(--navy-primary);
+            color: var(--background-cream);
+            border: none;
+            padding: 15px;
+            margin: 20px 0 20px 20px;
+            width: 45%;
+            float: right;
+            clear: right;
+            font-size: 10pt;
+            box-shadow: -3px 3px 8px rgba(0,0,0,0.2);
+        }
+        
+        .sidebar h4 {
+            margin-top: 0;
+            color: var(--rust-accent);
+            font-size: 11pt;
+        }
+        
+        .sidebar-dark h4 {
+            color: var(--rust-accent);
+        }
+        
+        .sidebar img, .sidebar-yellow img, .sidebar-dark img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+        /* Reality Check Box */
+        .reality-check {
+            background: var(--highlight-yellow);
+            border: 3px solid var(--charcoal-text);
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            font-size: 10pt;
+            clear: both;
+        }
+        
+        /* Value Bomb Box */
+        .value-bomb {
+            background: var(--navy-primary);
+            border: 4px solid var(--success-green);
+            padding: 20px;
+            margin: 25px 0;
+            color: var(--background-cream);
+            text-align: center;
+            clear: both;
+        }
+        
+        .value-bomb img {
+            width: 100%;
+            height: auto;
+        }
+        
+        /* Guru Quote */
+        .guru-quote {
+            background: linear-gradient(135deg, var(--rust-accent), var(--charcoal-text));
+            color: var(--background-cream);
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12pt;
+            border-radius: 8px;
+            clear: both;
+        }
+        
+        /* Final Reality Check */
+        .final-reality-check {
+            background: linear-gradient(135deg, var(--warning-red), var(--charcoal-text));
+            color: var(--background-cream);
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 11pt;
+            border-radius: 10px;
+            clear: both;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 10pt;
+        }
+        
+        th {
+            background: var(--navy-primary);
+            color: var(--background-cream);
+            padding: 10px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--gray-blue);
+        }
+        
+        tr:nth-child(even) {
+            background: rgba(245, 242, 236, 0.5);
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Code/Technical blocks */
+        .code-block {
+            background: var(--navy-primary);
+            color: var(--success-green);
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+            border-radius: 4px;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .checklist li {
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: var(--gray-blue);
+        }
+        
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        /* Page breaks */
+        .page-break {
+            page-break-before: always;
+        }
+        
+        /* Step headers */
+        .step-header {
+            background: var(--navy-primary);
+            color: var(--background-cream);
+            padding: 10px 15px;
+            margin: 30px 0 15px 0;
+            font-size: 14pt;
+            font-weight: bold;
+        }
+        
+        .step-subhead {
+            color: var(--rust-accent);
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 11pt;
+        }
+        
+        /* Emphasis */
+        strong {
+            color: var(--navy-primary);
+        }
+        
+        em {
+            color: var(--rust-accent);
+        }
+        
+        /* Image containers */
+        .image-container {
+            margin: 20px 0;
+            text-align: center;
+            clear: both;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        .image-caption {
+            font-size: 9pt;
+            color: var(--gray-blue);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .chapter-opener {
+                page-break-before: always;
+                page-break-after: always;
+            }
+            
+            .sidebar, .sidebar-yellow, .sidebar-dark {
+                break-inside: avoid;
+            }
+            
+            .image-container {
+                break-inside: avoid;
+            }
+            
+            h2, h3 {
+                break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================
+     CHAPTER 2 COMIC OPENER - FULL PAGE
+     ============================================ -->
+<div class="chapter-opener">
+    <img src="images/ch2-comic-opener.png" alt="Chapter 2: The $997 Secret (For Free) - Comic Opener featuring Chad and PosiBot">
+</div>
+
+<!-- ============================================
+     CHAPTER 2 CONTENT BEGINS
+     ============================================ -->
+
+<h1>CHAPTER 2: The $997 Secret (For Free)</h1>
+
+<p style="font-size: 14pt; font-weight: bold; text-align: center; margin: 30px 0;">Here it is. The whole thing. Free.</p>
+
+<p>Every guru course—whether it's $497, $997, or $4,997—teaches the same six steps. They package it differently. They add bonuses. They manufacture urgency with countdown timers and "only 7 spots left" notifications that somehow never reach zero.</p>
+
+<p>But the core framework? You're about to get it right now, in the next fifteen minutes, for the price of continuing to read.</p>
+
+<!-- VALUE BOMB BOX -->
+<div class="image-container">
+    <img src="images/ch2-value-01.png" alt="Value Bomb: What you're about to read is the EXACT framework taught in paid courses">
+</div>
+
+<p>We're not going to editorialize yet. That comes later. For now, we're going to give you exactly what the gurus give their paying students—minus the Slack channel full of people asking "is this normal?" and the weekly Zoom calls where the guru shares his screen for eleven minutes before pitching the advanced tier.</p>
+
+<p><strong>Here's exactly what they teach.</strong></p>
+
+<!-- ============================================
+     STEP 1: PLATFORM SETUP
+     ============================================ -->
+
+<div class="step-header">Step 1: Platform Setup</div>
+<div class="step-subhead">The Guru Promise: "Get your store live in 2-4 hours, even if you've never built a website before!"</div>
+
+<p><strong>The Actual Framework:</strong></p>
+
+<p>Your store lives on Shopify. Not WooCommerce (too technical), not BigCommerce (too enterprise), not Wix (too amateur). Shopify. Every serious dropshipping course points here because the ecosystem is built for exactly this business model.</p>
+
+<!-- SIDEBAR: Platform Comparison -->
+<div class="sidebar">
+    <img src="images/sidebar-plat-01.png" alt="Platform Verdict: Shopify wins">
+</div>
+
+<h3>The Setup Checklist:</h3>
+
+<p><strong>Shopify Account:</strong></p>
+<ul>
+    <li>Start with Basic plan ($29/month)</li>
+    <li>Use the 3-day free trial to build, don't pay until you're ready to test ads</li>
+    <li>Skip the annual plan until you've validated</li>
+</ul>
+
+<p><strong>Theme Selection:</strong></p>
+<p>Pick a free theme optimized for speed and mobile. The holy trinity:</p>
+<ul>
+    <li><strong>Dawn</strong> (Shopify's flagship free theme, clean, fast)</li>
+    <li><strong>Craft</strong> (better for lifestyle products)</li>
+    <li><strong>Refresh</strong> (solid for health/beauty niches)</li>
+</ul>
+<p>Paid themes ($180-350) are unnecessary at this stage. Anyone who tells you otherwise is selling themes.</p>
+
+<div class="clearfix"></div>
+
+<p><strong>Domain:</strong></p>
+<ul>
+    <li>Use Shopify's domain registration ($14/year) or connect from Namecheap/GoDaddy</li>
+    <li>Avoid hyphens, numbers, and anything that requires spelling out loud</li>
+    <li>.com only. Not .store, not .shop, not .io. Just .com.</li>
+</ul>
+<p><em>Psychology tip:</em> Shorter domains convert better. BrightHome.com beats BrightHomeEssentialsStore.com.</p>
+
+<p><strong>Essential Pages:</strong></p>
+<ul>
+    <li><strong>Homepage</strong> — Hero image, value proposition, featured products</li>
+    <li><strong>Product pages</strong> — Built per product (covered in Step 4)</li>
+    <li><strong>About Us</strong> — Brand story (can be fictional for DTC brands)</li>
+    <li><strong>Contact</strong> — Email form + email address visible</li>
+    <li><strong>Shipping Policy</strong> — Realistic timelines (this matters later)</li>
+    <li><strong>Refund Policy</strong> — Shopify has generators for this</li>
+    <li><strong>Privacy Policy</strong> — Legal requirement, Shopify generates this too</li>
+</ul>
+
+<p><strong>Payment Processing:</strong></p>
+<ul>
+    <li><strong>Shopify Payments</strong> (if available in your country) — lowest fees</li>
+    <li><strong>Stripe</strong> as backup</li>
+    <li><strong>PayPal</strong> (customers expect it, despite the fees)</li>
+</ul>
+
+<div class="guru-quote">
+    Setup is the easy part. It's also where most people stop feeling optimistic.
+</div>
+
+<!-- ============================================
+     STEP 2: PRODUCT RESEARCH
+     ============================================ -->
+
+<div class="step-header">Step 2: Product Research</div>
+<div class="step-subhead">The Guru Promise: "Find winning products using our proprietary research methodology!"</div>
+
+<p><strong>The Actual Framework:</strong></p>
+
+<p>There is no proprietary methodology. There's a checklist everyone uses.</p>
+
+<!-- WINNING PRODUCT CRITERIA TABLE -->
+<div class="image-container">
+    <img src="images/ch2-table-01.png" alt="Winning Product Criteria Checklist">
+</div>
+
+<!-- SIDEBAR: Pro Tip -->
+<div class="sidebar-yellow">
+    <img src="images/sidebar-tip-01.png" alt="Guru Secret: Order the product yourself BEFORE launching">
+</div>
+
+<h3>Research Tools:</h3>
+
+<p><strong>Free:</strong></p>
+<ul>
+    <li>AliExpress "Top Selling" sections</li>
+    <li>TikTok search (look for viral product videos)</li>
+    <li>Amazon Movers & Shakers</li>
+    <li>Google Trends (validate trajectory)</li>
+    <li>Facebook Ad Library (spy on competitors)</li>
+</ul>
+
+<p><strong>Paid ($29-99/month):</strong></p>
+<ul>
+    <li>Ecomhunt</li>
+    <li>Sell The Trend</li>
+    <li>Dropship Spy</li>
+    <li>Niche Scraper</li>
+</ul>
+
+<p>The paid tools aggregate what you could find manually. They save time. They don't guarantee winners.</p>
+
+<div class="clearfix"></div>
+
+<h3>Validation Protocol:</h3>
+<p>Before committing to a product:</p>
+<ol>
+    <li><strong>Google Trends</strong> — Is interest rising, stable, or dying?</li>
+    <li><strong>Facebook Ad Library</strong> — How many competitors are running ads? (Some competition = validated market. Too much = bloodbath.)</li>
+    <li><strong>AliExpress Orders</strong> — Has the supplier moved 1,000+ units? (Proof of fulfillment capability)</li>
+    <li><strong>TikTok/Instagram Search</strong> — Is there organic content? (Free marketing potential)</li>
+</ol>
+
+<div class="guru-quote">
+    Finding a "winner" is the easy part. What happens next separates the 10% from the 90%.
+</div>
+
+<!-- ============================================
+     STEP 3: SUPPLIER CONNECTION
+     ============================================ -->
+
+<div class="step-header">Step 3: Supplier Connection</div>
+<div class="step-subhead">The Guru Promise: "Connect with reliable suppliers with one click!"</div>
+
+<p><strong>The Actual Framework:</strong></p>
+
+<p>Your supplier is your invisible business partner. You'll never meet them. You'll rarely speak with them. They control your customer experience entirely.</p>
+
+<!-- SUPPLIER PLATFORM HIERARCHY TABLE -->
+<div class="image-container">
+    <img src="images/ch2-table-02.png" alt="Supplier Platform Hierarchy Comparison">
+</div>
+
+<h3>The Platform Hierarchy:</h3>
+
+<p><strong>AliExpress (Starting Point):</strong></p>
+<ul>
+    <li>Largest selection</li>
+    <li>Longest shipping times</li>
+    <li>Integration via DSers app (free tier available)</li>
+    <li><em>Good for:</em> Testing product viability</li>
+</ul>
+
+<p><strong>CJ Dropshipping (Growth Stage):</strong></p>
+<ul>
+    <li>Faster shipping via regional warehouses</li>
+    <li>Requires account approval</li>
+    <li>Can source products you find elsewhere</li>
+    <li><em>Good for:</em> Products you've validated</li>
+</ul>
+
+<p><strong>Spocket (Premium Play):</strong></p>
+<ul>
+    <li>US/EU suppliers = faster delivery</li>
+    <li>Higher product costs, lower margins</li>
+    <li><em>Good for:</em> Markets that won't tolerate 3-week shipping</li>
+</ul>
+
+<h3>Supplier Vetting Protocol:</h3>
+<p>Before partnering with any supplier:</p>
+
+<table>
+    <tr>
+        <th>Check</th>
+        <th>Minimum Standard</th>
+    </tr>
+    <tr>
+        <td>Rating</td>
+        <td>4.7+ stars</td>
+    </tr>
+    <tr>
+        <td>Orders</td>
+        <td>1,000+ total</td>
+    </tr>
+    <tr>
+        <td>Response Time</td>
+        <td>Under 24 hours</td>
+    </tr>
+    <tr>
+        <td>Product Photos</td>
+        <td>Professional, not stock</td>
+    </tr>
+    <tr>
+        <td>Communication</td>
+        <td>Clear English (enough to resolve issues)</td>
+    </tr>
+</table>
+
+<div class="reality-check">
+    <strong>Non-Negotiable:</strong> Order a sample first. Always. Every time. No exceptions.
+</div>
+
+<h3>Integration Setup:</h3>
+<ol>
+    <li>Install DSers (Shopify App Store, free tier)</li>
+    <li>Connect AliExpress account</li>
+    <li>Import products to store</li>
+    <li>Set pricing rules (auto-markup)</li>
+    <li>Enable auto-ordering (optional—some prefer manual control)</li>
+</ol>
+
+<h3>Communication Templates:</h3>
+
+<p><strong>Bulk Discount Request:</strong></p>
+<div class="code-block">"Hello, I'm testing [product] for my store and expect 50-100 orders/month initially, scaling to 500+. What pricing can you offer for bulk orders? I'm evaluating multiple suppliers."</div>
+
+<p><strong>Shipping Timeline Confirmation:</strong></p>
+<div class="code-block">"Before I proceed, please confirm: What is the realistic shipping time to USA/UK/Canada using ePacket? I need accurate timelines for my customers."</div>
+
+<p><strong>Custom Packaging Inquiry:</strong></p>
+<div class="code-block">"Do you offer custom packaging or branded inserts? What are minimum order quantities and additional costs?"</div>
+
+<div class="guru-quote">
+    Your supplier becomes your silent business partner. Choose wisely—you won't always have a choice later.
+</div>
+
+<!-- ============================================
+     STEP 4: STORE OPTIMIZATION
+     ============================================ -->
+
+<div class="step-header">Step 4: Store Optimization</div>
+<div class="step-subhead">The Guru Promise: "Copy-paste your way to a high-converting store!"</div>
+
+<p><strong>The Actual Framework:</strong></p>
+
+<p>Your store needs to overcome one fundamental problem: you're asking strangers to give their credit card number to a website they've never heard of, for a product they've never touched, from a company with no reputation.</p>
+
+<p><strong>Trust signals do the heavy lifting.</strong></p>
+
+<!-- TRUST SIGNAL STACK DIAGRAM -->
+<div class="image-container">
+    <img src="images/ch2-trust-01.png" alt="Trust Signal Stack Diagram">
+</div>
+
+<!-- SIDEBAR: Mobile First -->
+<div class="sidebar">
+    <img src="images/sidebar-conv-01.png" alt="Mobile First: 70%+ of traffic is mobile">
+</div>
+
+<h3>The Trust Signal Stack:</h3>
+
+<p><strong>Reviews (Critical):</strong></p>
+<ul>
+    <li>App: Judge.me (free tier) or Loox (photo reviews)</li>
+    <li>Import reviews from AliExpress (gray area, everyone does it)</li>
+    <li>Request reviews post-purchase via email automation</li>
+</ul>
+
+<p><strong>Trust Badges:</strong></p>
+<ul>
+    <li>Secure checkout badges</li>
+    <li>Money-back guarantee badge</li>
+    <li>"Safe & Secure" icons near checkout button</li>
+    <li>Payment method logos (Visa, Mastercard, PayPal)</li>
+</ul>
+
+<p><strong>Live Chat:</strong></p>
+<ul>
+    <li>App: Tidio (free tier) or Shopify Inbox</li>
+    <li>Doesn't need to be 24/7—set expectations</li>
+    <li>Quick responses during testing phase = higher conversion</li>
+</ul>
+
+<p><strong>Clear Policies:</strong></p>
+<ul>
+    <li><strong>Shipping:</strong> Honest timelines (do NOT say "3-5 days" if it's 15-25)</li>
+    <li><strong>Returns:</strong> 30-day money-back is standard</li>
+    <li><strong>FAQ:</strong> Pre-answer objections</li>
+</ul>
+
+<div class="clearfix"></div>
+
+<h3>Essential Apps:</h3>
+<table>
+    <tr>
+        <th>Purpose</th>
+        <th>App</th>
+        <th>Cost</th>
+    </tr>
+    <tr>
+        <td>Reviews</td>
+        <td>Judge.me</td>
+        <td>Free tier</td>
+    </tr>
+    <tr>
+        <td>Email Capture</td>
+        <td>Klaviyo</td>
+        <td>Free under 250 contacts</td>
+    </tr>
+    <tr>
+        <td>Upsells</td>
+        <td>ReConvert</td>
+        <td>$4.99/mo</td>
+    </tr>
+    <tr>
+        <td>Urgency</td>
+        <td>Ultimate Sales Boost</td>
+        <td>Free tier</td>
+    </tr>
+    <tr>
+        <td>Live Chat</td>
+        <td>Tidio</td>
+        <td>Free tier</td>
+    </tr>
+</table>
+
+<h3>Product Page Formula:</h3>
+<p>Every high-converting product page follows this structure:</p>
+
+<ol>
+    <li><strong>Headline:</strong> Benefit-focused, not feature-focused
+        <br>❌ "Posture Corrector with Adjustable Straps"
+        <br>✅ "Finally Fix Your Back Pain in 30 Days"
+    </li>
+    <li><strong>Hero Image:</strong> Product in use, lifestyle context</li>
+    <li><strong>Pain → Agitate → Solve:</strong>
+        <ul>
+            <li>Identify the problem</li>
+            <li>Twist the knife (what happens if they don't solve it)</li>
+            <li>Present your product as the solution</li>
+        </ul>
+    </li>
+    <li><strong>Benefits Section:</strong> 3-5 bullet points, icon-enhanced</li>
+    <li><strong>Social Proof Block:</strong> Reviews, testimonials, user photos</li>
+    <li><strong>FAQ Section:</strong> Handle objections before they become abandoned carts</li>
+    <li><strong>CTA Button:</strong> Clear, contrasting color, above the fold</li>
+</ol>
+
+<div class="guru-quote">
+    A beautiful store with perfect trust signals. Now you just need one thing: people to see it.
+</div>
+
+<!-- ============================================
+     STEP 5: AD LAUNCH
+     ============================================ -->
+
+<div class="step-header">Step 5: Ad Launch</div>
+<div class="step-subhead">The Guru Promise: "Start with just $10-20/day and scale from there!"</div>
+
+<p><strong>The Actual Framework:</strong></p>
+
+<p>This is where money meets algorithm. Everything before this was setup. <strong>This is the game.</strong></p>
+
+<!-- FACEBOOK ADS FLOWCHART -->
+<div class="image-container">
+    <img src="images/ch2-flow-01.png" alt="Facebook Ads Testing Framework Flowchart">
+</div>
+
+<h3>Platform Selection:</h3>
+
+<p><strong>Facebook/Instagram (Still King):</strong></p>
+<ul>
+    <li>Largest audience, best targeting</li>
+    <li>Higher CPMs than 2019, still viable</li>
+    <li>Requires Business Manager setup</li>
+    <li>Pixel installation critical</li>
+</ul>
+
+<p><strong>TikTok (Rising Contender):</strong></p>
+<ul>
+    <li>Younger demographic</li>
+    <li>Lower CPMs currently</li>
+    <li>Creative-hungry (needs fresh content constantly)</li>
+    <li>Spark Ads (boost organic) = cheat code</li>
+</ul>
+
+<p><strong>Google (Advanced):</strong></p>
+<ul>
+    <li>Search intent = higher conversion</li>
+    <li>Requires keyword research</li>
+    <li>Harder for impulse products</li>
+    <li>Better for problem-solution products</li>
+</ul>
+
+<h3>Facebook Ads Fundamentals:</h3>
+
+<p><strong>Campaign Structure:</strong></p>
+<div class="code-block">Campaign (CBO - Campaign Budget Optimization)
+├── Ad Set 1 (Interest: Yoga enthusiasts)
+│   ├── Ad 1 (Video)
+│   ├── Ad 2 (Carousel)
+│   └── Ad 3 (Static image)
+├── Ad Set 2 (Interest: Back pain)
+│   ├── Ad 1 (Video)
+│   ├── Ad 2 (Carousel)
+│   └── Ad 3 (Static image)
+└── Ad Set 3 (Interest: Office workers)
+    ├── Ad 1 (Video)
+    ├── Ad 2 (Carousel)
+    └── Ad 3 (Static image)</div>
+
+<h3>Testing Framework:</h3>
+<table>
+    <tr>
+        <th>Phase</th>
+        <th>Daily Budget</th>
+        <th>Duration</th>
+        <th>Goal</th>
+    </tr>
+    <tr>
+        <td>Testing</td>
+        <td>$30-50</td>
+        <td>3-5 days</td>
+        <td>Find winning creative + audience</td>
+    </tr>
+    <tr>
+        <td>Validation</td>
+        <td>$50-100</td>
+        <td>5-7 days</td>
+        <td>Confirm profitability</td>
+    </tr>
+    <tr>
+        <td>Scaling</td>
+        <td>$100+</td>
+        <td>Ongoing</td>
+        <td>Maximize profitable spend</td>
+    </tr>
+</table>
+
+<h3>Kill/Scale Metrics:</h3>
+<table>
+    <tr>
+        <th>Metric</th>
+        <th>Kill Signal</th>
+        <th>Scale Signal</th>
+    </tr>
+    <tr>
+        <td>CTR (Click-Through Rate)</td>
+        <td style="color: #E35050;">&lt;1% after $10 spend</td>
+        <td style="color: #6EC972;">&gt;2%</td>
+    </tr>
+    <tr>
+        <td>CPC (Cost Per Click)</td>
+        <td style="color: #E35050;">&gt;$2.00</td>
+        <td style="color: #6EC972;">&lt;$1.00</td>
+    </tr>
+    <tr>
+        <td>Add to Cart Rate</td>
+        <td style="color: #E35050;">&lt;3%</td>
+        <td style="color: #6EC972;">&gt;8%</td>
+    </tr>
+    <tr>
+        <td>Purchase ROAS</td>
+        <td style="color: #E35050;">&lt;1.5x after 3 days</td>
+        <td style="color: #6EC972;">&gt;2.5x</td>
+    </tr>
+</table>
+
+<h3>Creative That Converts:</h3>
+<p>Video outperforms static. The formula:</p>
+<ol>
+    <li><strong>Hook (0-3 sec):</strong> Pattern interrupt, stop the scroll</li>
+    <li><strong>Problem (3-10 sec):</strong> "Do you struggle with..."</li>
+    <li><strong>Solution (10-20 sec):</strong> Product demo</li>
+    <li><strong>Social Proof (20-25 sec):</strong> Reviews, testimonials</li>
+    <li><strong>CTA (25-30 sec):</strong> "Click below to get yours"</li>
+</ol>
+
+<h3>Budget Reality:</h3>
+<table>
+    <tr>
+        <th>Phase</th>
+        <th>Realistic Budget</th>
+    </tr>
+    <tr>
+        <td>Testing (finding winners)</td>
+        <td>$500-1,500</td>
+    </tr>
+    <tr>
+        <td>Validation (confirming)</td>
+        <td>$500-1,000</td>
+    </tr>
+    <tr>
+        <td>Initial Scale</td>
+        <td>$1,000-3,000/month</td>
+    </tr>
+    <tr>
+        <td><strong>Minimum to Start Properly</strong></td>
+        <td><strong>$2,000-3,000</strong></td>
+    </tr>
+</table>
+
+<div class="reality-check">
+    The "$5/day" narrative is technically possible. It's also why most people quit before finding a winner—they run out of runway during testing.
+</div>
+
+<div class="guru-quote">
+    The algorithm giveth. The algorithm taketh away. Often in the same week.
+</div>
+
+<!-- ============================================
+     STEP 6: SCALE TO SIX FIGURES
+     ============================================ -->
+
+<div class="step-header">Step 6: Scale to Six Figures</div>
+<div class="step-subhead">The Guru Promise: "Once you find a winner, just increase your budget and watch the money roll in!"</div>
+
+<p><strong>The Actual Framework:</strong></p>
+
+<p>Scaling is not "spend more money." Scaling is navigating a maze where the walls move.</p>
+
+<!-- SCALING RULES TABLE -->
+<div class="image-container">
+    <img src="images/ch2-table-03.png" alt="Scaling Rules: Do vs Don't">
+</div>
+
+<h3>The Math of "Six Figures":</h3>
+<p>Here's what the gurus mean—and what they leave out:</p>
+
+<!-- SIX FIGURE TRANSLATION BOX -->
+<div class="image-container">
+    <img src="images/ch2-math-01.png" alt="Six Figure Translation: Revenue does not equal Income">
+</div>
+
+<h3>ROAS (Return on Ad Spend) Targets:</h3>
+<table>
+    <tr>
+        <th>ROAS</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>&lt;1.5x</td>
+        <td style="color: #E35050;">Losing money</td>
+        <td>Kill or optimize</td>
+    </tr>
+    <tr>
+        <td>1.5-2x</td>
+        <td style="color: #F8C952;">Break-even zone</td>
+        <td>Proceed with caution</td>
+    </tr>
+    <tr>
+        <td>2-2.5x</td>
+        <td>Marginally profitable</td>
+        <td>Optimize before scaling</td>
+    </tr>
+    <tr>
+        <td>2.5-3x</td>
+        <td style="color: #6EC972;">Healthy</td>
+        <td>Scale carefully</td>
+    </tr>
+    <tr>
+        <td>3x+</td>
+        <td style="color: #6EC972;"><strong>Strong</strong></td>
+        <td>Scale aggressively</td>
+    </tr>
+</table>
+
+<h3>Automation Stack:</h3>
+<p>Once validated, systematize:</p>
+<table>
+    <tr>
+        <th>Function</th>
+        <th>Tool</th>
+        <th>Purpose</th>
+    </tr>
+    <tr>
+        <td>Abandoned Cart</td>
+        <td>Klaviyo</td>
+        <td>Recover 5-15% of lost sales</td>
+    </tr>
+    <tr>
+        <td>Post-Purchase Upsell</td>
+        <td>ReConvert</td>
+        <td>Increase AOV 10-20%</td>
+    </tr>
+    <tr>
+        <td>Review Requests</td>
+        <td>Judge.me</td>
+        <td>Build social proof</td>
+    </tr>
+    <tr>
+        <td>Restock Reminders</td>
+        <td>Klaviyo</td>
+        <td>Repeat purchases</td>
+    </tr>
+</table>
+
+<div class="reality-check">
+    Notice we said <strong>revenue</strong>, not <strong>profit</strong>. That distinction will cost some readers everything.
+</div>
+
+<!-- ============================================
+     THE COMPLETE LAUNCH CHECKLIST
+     ============================================ -->
+
+<h2 class="page-break">The Complete Launch Checklist</h2>
+
+<div class="image-container">
+    <img src="images/ch2-checklist-01.png" alt="Complete Dropshipping Launch Checklist">
+</div>
+
+<h3>PLATFORM SETUP</h3>
+<ul class="checklist">
+    <li>Shopify account created (Basic plan)</li>
+    <li>Domain purchased and connected</li>
+    <li>Free theme installed (Dawn/Craft/Refresh)</li>
+    <li>Essential pages created (Home, About, Contact, Policies)</li>
+    <li>Payment processing active (Shopify Payments + PayPal)</li>
+    <li>SSL certificate enabled (automatic with Shopify)</li>
+</ul>
+
+<h3>PRODUCT RESEARCH</h3>
+<ul class="checklist">
+    <li>3-5 products researched against criteria checklist</li>
+    <li>Google Trends validation complete</li>
+    <li>Facebook Ad Library competitor check done</li>
+    <li>Sample orders placed for top 1-2 products</li>
+</ul>
+
+<h3>SUPPLIER SETUP</h3>
+<ul class="checklist">
+    <li>Supplier vetted (rating, orders, response time)</li>
+    <li>DSers or automation tool connected</li>
+    <li>Pricing rules configured</li>
+    <li>Shipping timelines confirmed in writing</li>
+</ul>
+
+<h3>STORE OPTIMIZATION</h3>
+<ul class="checklist">
+    <li>Product pages built (benefit-focused copy)</li>
+    <li>Trust signals installed (reviews, badges, chat)</li>
+    <li>Mobile experience tested</li>
+    <li>Email capture active (popup + footer)</li>
+    <li>Essential apps installed and configured</li>
+</ul>
+
+<h3>ADVERTISING PREP</h3>
+<ul class="checklist">
+    <li>Facebook Business Manager created</li>
+    <li>Pixel installed and verified</li>
+    <li>Ad account funded</li>
+    <li>3-5 creatives ready (video preferred)</li>
+    <li>Audience targets identified</li>
+    <li>Campaign structure planned</li>
+</ul>
+
+<h3>FINANCIAL READINESS</h3>
+<ul class="checklist">
+    <li>$2,000-3,000 testing budget allocated</li>
+    <li>Tracking spreadsheet created</li>
+    <li>Break-even ROAS calculated</li>
+    <li>Emergency fund separate (not ad budget)</li>
+</ul>
+
+<!-- ============================================
+     CHAPTER CONCLUSION
+     ============================================ -->
+
+<div class="guru-quote" style="margin-top: 40px;">
+    <strong>Congratulations.</strong><br><br>
+    You now know everything a $997 course teaches.
+</div>
+
+<p>You could close this book right now, execute this framework, and you'd have exactly the same knowledge as someone who paid four figures for a guru's "proprietary system."</p>
+
+<p style="font-size: 12pt; font-weight: bold; text-align: center; margin: 30px 0;">So here's the question that $997 doesn't answer:</p>
+
+<h2>So Why Doesn't Everyone Succeed?</h2>
+
+<p>You have the framework. It's complete. It's proven. People have made money with it—real money, life-changing money.</p>
+
+<p><strong>So why do 80-90% of people who follow this exact framework fail?</strong></p>
+
+<!-- QUESTIONS SIDEBAR -->
+<div class="sidebar-dark">
+    <img src="images/sidebar-quest-01.png" alt="Things the Framework Doesn't Address">
+</div>
+
+<p>We're not going to answer these questions here. Not yet.</p>
+
+<p>Because the framework isn't the problem. <em>The framework works.</em></p>
+
+<p>The math around the framework—the numbers they don't share, the costs they don't mention, the odds they never calculate—<strong>that's where dreams go to meet reality.</strong></p>
+
+<div class="clearfix"></div>
+
+<div class="final-reality-check">
+    The framework is real. The math around it... that's Chapter 3.
+</div>
+
+<!-- ============================================
+     END OF CHAPTER 2
+     ============================================ -->
+
+</body>
+</html>
